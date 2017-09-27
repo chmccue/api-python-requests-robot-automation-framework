@@ -1,0 +1,40 @@
+*** Settings ***
+Library     ../page_objects/fc_lpn/fc_lpn_objects.py
+
+*** Test Cases ***
+
+
+
+19-fc_lpn_getSiblingList_invalid_lpn
+    [Tags]    lpn
+    [Documentation]
+    ...    Calls the API to return the siblings of the LPN passed in. Expected result 
+    ...    is the API returns a code 500 error since the LPN is invalid with the message LPN X 
+    ...    is not valid where X is the LPN passed up
+    fc lpn getSiblingList invalid lpn
+        
+20-fc_lpn_getSiblingList_valid_lpn
+    [Tags]    lpn
+    [Documentation]
+    ...    Calls the API to return the siblings of the LPN passed in. Expected result 
+    ...    is the API returns the six LPNs before and the six LPNs after the one that was passed up. 
+    ...    It returns the case tied to each LPN, the po tied to the case, and the current location 
+    ...    of the LPN. NOTE - These wouldnt necessarily be populated.
+    fc lpn getSiblingList valid lpn
+    
+21-fc_lpn_get_valid_lpn
+    [Tags]    lpn
+    [Documentation]    Calls the API to return the entire history of an LPN. Expected result is the 
+    ...    API returns the history of an LPN
+    fc lpn get valid lpn
+    
+    
+22-fc_lpn_get_invalid_lpn
+    [Tags]    lpn
+    [Documentation]    Calls the API to return the entire history of an LPN. Expected result is the 
+    ...    API throw the error X was not found where X is the LPN that was passed up
+    fc lpn get invalid lpn
+    
+
+
+

@@ -1,0 +1,11 @@
+*** Settings ***
+Library     ../page_objects/fc_tools/fc_tools_objects.py
+
+
+*** Test Cases ***
+
+1-fc.tools.getiWMSVersion
+      [Tags]    api
+      [Documentation]    Compares the version of WMS running on users device to the version set on the server
+      fc tools check for latest WMS version on server
+
